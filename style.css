@@ -1,0 +1,358 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 2.5px;
+}
+
+:root{
+    --contraste: rgb(31, 92, 224);
+    --contrasteTRANSPARENTE: rgba(31, 92, 224, 0.2);
+}
+
+body{
+    transition: .2s;
+    height: 100vh;
+    margin: 0;
+
+    font-size: 1.6vh;
+    line-height: 1.6;
+
+    background: url(bg.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    overflow: hidden;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--contraste);
+}
+
+::-webkit-scrollbar-track-piece{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    background: white;
+}
+
+
+/* MAIN CONTAINER ---*/
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* CONTAINER DA ESQUERDA ------------------------------------------------------*/
+
+.container{
+    transition: .2s;
+    animation: introContainer 1s;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 30vh;
+    width: 45vh;
+    height: 85vh;
+    padding: 2vh;
+    border-radius: 0 5vh 0 5vh;
+
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2vh);
+    box-shadow: 0 0 .1vh .25vh rgba(255, 255, 255, 0.5);
+}
+
+.container-div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 2vh;
+}
+
+.container-div label{
+    font-weight: bold;
+    letter-spacing: .5vh;
+}
+
+.container-div input{
+    color: white;
+    outline: none;
+    transition: .5s;
+    padding: 1vh;
+    font-size: 2vh;
+    border: none;
+    border-bottom: .2vh solid white;
+    border-radius: 1vh 0 0 1vh;
+    background: transparent;
+    box-shadow: 0vh .3vh .2vh -.2vh rgba(0, 0, 0, 0);
+}
+.container-div input[class="texto"]:valid{
+    border-bottom-color: rgb(161, 255, 161);
+    box-shadow: 0vh .3vh .2vh -.2vh rgb(161, 255, 161);
+}
+
+.container-div input::placeholder{
+    transition: .5s;
+    color: rgba(255, 255, 255, 0.2);
+}
+.container-div input:focus::placeholder{
+    color: transparent;
+}
+.container-div input:focus{
+    border-radius: 2vh 0 0 2vh;
+    background-color: var(--contrasteTRANSPARENTE);
+}
+
+/* BOTÕES ATUALIZAR | ADICIONAR | CANCELAR ----------*/
+.container-div-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2vh;
+}
+
+.container-div-buttons .button{   
+    transition: .5s;
+    padding: 1vh;
+    width: 30%;
+    font-size: 1.8vh;
+    border: none;
+    color: black;
+    background: rgba(255, 255, 255);
+    border: .3vh solid white;
+    cursor: pointer; 
+}
+
+.container-div-buttons .button-cancelar{
+    display: none;
+    border-radius: .5vh .5vh .5vh .5vh;
+    color: red;
+    scale: .8;
+}
+.container-div-buttons .button-atualizar{
+    display: none;
+    border-radius: 2vh 0 2vh 0;
+}
+.container-div-buttons .button-adicionar{
+    border-radius: 0 2vh 0 2vh;
+}
+
+
+.container-div-buttons .button-cancelar:hover{
+    border-radius: 2vh 2vh 2vh 2vh;
+    color: white;
+    background: red;
+}
+.container-div .button-atualizar:hover{
+    color: white;
+    background: var(--contraste);
+    border-radius: 0 2vh 0 2vh;
+}
+.container-div .button-adicionar:hover{
+    color: white;
+    background: var(--contraste);
+    border-radius: 2vh 0 2vh 0;
+}
+
+.generos-div{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around;
+    gap: 2px;
+}
+
+.generos-div-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 8vh;
+    padding: 2vh;
+    gap: 1vh;
+}
+.generos-div-child input{
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    height: 2vh;
+}
+
+/* CONTAINER DA DIREITA ------------------------------------------------------*/
+.tabela{
+    transition: .2s;
+    animation: introTabela 1s;
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 32.5vh;
+    width: 100vh;
+    height: 85vh;
+    padding: 2vh;
+    border-radius: 2vh;
+
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2vh);
+    box-shadow: 0 0 .1vh .25vh rgba(255, 255, 255, 0.5);
+}
+
+.tabela-main{
+    width: 100%; /* Garante que a tabela ocupe toda a largura disponível */
+    max-width: 100%; /* Limita a largura máxima */
+}
+
+.tabela-main table{
+    display:table;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2vh);
+    border: .1vh solid rgba(255, 255, 255, 0.3);
+    overflow-x: scroll;
+}
+
+.tabela-main-header{
+    letter-spacing: 0;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tabela-main table td, 
+.tabela-main table th {
+    border: .1vh solid rgba(255, 255, 255, 0.3);
+    padding: .5vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tabela-main table tr{
+    transition: .2s;
+    outline: .1vh solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.tabela-main table tr[class="tableRow"]:hover{
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+
+.tabelaBTN-remover{
+    transition: .5s;
+    font-family: 'Arial';
+    background: rgb(120, 0, 0); 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    padding: .5vh;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: .1vh;
+    border: .2vh solid red;
+}
+.tabelaBTN-remover:hover{
+    color: rgb(255, 0, 0);
+    background: white;
+}
+
+/* ANIMAÇÕES --------------------------------------------------------------- */
+@keyframes introContainer {
+    from{
+        left: 0%;
+    }
+}
+
+@keyframes introTabela {
+    from{
+        left: 90%;
+    }
+}
+
+/* MEDIA QUERIES ----------------------------------------------------------- */
+
+/* Para telas com largura menor que 1310px */
+@media (max-width: 1500px) {
+
+    .container{
+        left: 20%;
+    }
+
+    .tabela{
+        left: 70%;
+        width: 80vh;
+    }
+}
+
+/* Para telas com largura menor que 1100px */
+@media (max-width: 1160px) {
+
+    body{
+        height: 200vh;
+        overflow-y: scroll;
+    }
+    
+    .main{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container{
+        position: relative;
+        top: 50vh;
+        left: 50%;
+    }
+
+    .tabela{
+        transition: 0s;
+        position: relative;
+        top: 50vh;
+        left: 50%;
+        width: 80%;
+        margin-top: 10vh;
+    }
+}
+
+/* Para telas com largura menor que 768px */
+@media (max-width: 768px) {
+
+    .container{
+        left: 50%;
+        width: 80vw;
+        border-radius: 0;
+    }
+
+    .tabela{
+        left: 50%;
+        width: 80vw;
+        border-radius: 0;
+    }
+
+    .container-div input {
+        font-size: 4vw;
+    }
+}
+
+/* Para telas com largura menor que 480px */
+@media (max-width: 480px) {
+    .container{
+        width: 90vw;
+    }
+
+    .tabela{
+        width: 90vw;
+    }
+}

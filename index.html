@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/850a9c541a.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h2 style="text-align: center;">Formulário <hr></h2>
+            <form id="form" method="post">
+                <div class="container-div">
+                    <label style="text-align: center;" for="nome"><i class="fa-solid fa-id-card"></i> ID</label>
+                    <input style="text-align: center; border-radius:20px; border: .1vh solid white; cursor:default;"  placeholder="?" type="text" name="id" id="id" readonly>
+                </div>
+                <div class="container-div">
+                    <label for="nome"><i class="fa-solid fa-user"></i> Nome</label>
+                    <input class="texto" placeholder="Nome" type="text" name="nome" id="nome" autocomplete="off" required>
+                </div>
+                <div class="container-div">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input class="texto" placeholder="Email" type="email" name="email" id="email" autocomplete="off" required>
+                </div>
+                <div class="container-div">
+                    <label for="tele"><i class="fa-solid fa-phone"></i> Nº Telemóvel <span style="letter-spacing: 0;">(+351)</span></label>
+                    <input class="texto" placeholder="Telefone/Telemóvel (000000000)" type="tel" maxlength="9" minlength="9" name="tele" id="tele" autocomplete="off" required>
+                </div>
+                <div class="container-div">
+                    <label for="cc"><i class="fa-solid fa-address-card"></i> Nº Cartão de Cidadão</label>
+                    <input class="texto" placeholder="CC (00000000 0)" type="tel" maxlength="9" minlength="9" name="cc" id="cc" autocomplete="off" required>
+                </div>
+                <div class="container-div">
+                    <label for="localidade"><i class="fa-solid fa-location-dot"></i> Localidade</label>
+                    <input class="texto" placeholder="Localidade" type="text" name="localidade" id="localidade" autocomplete="off" required>
+                </div>
+                <div class="container-div">
+                    <label for="password"><i class="fa-solid fa-venus-mars"></i> Género</label>
+                    <div class="generos-div">
+                        <div class="generos-div-child">
+                            <label for="masculino">M</label>
+                            <input type="radio" id="masculino" name="genero" value="masculino" required>
+                        </div>
+                        <div  class="generos-div-child">
+                            <label for="feminino">F</label>
+                            <input type="radio" id="feminino" name="genero" value="feminino" required>
+                        </div>
+                        <div  class="generos-div-child">
+                            <label for="outro">Outro</label>
+                            <input type="radio" id="outro" name="genero" value="outro" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-div container-div-buttons">
+                    <button class="button button-atualizar" type="submit" id="updateBtn">Atualizar</button>
+                    <button class="button button-adicionar" type="submit" id="addBtn">Adicionar</button>
+                    <button class="button button-cancelar" type="submit" id="cancelarBtn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="tabela">
+            <h2 style="text-align: center;">Dados <hr><br></h2>
+            <div class="tabela-main">
+                <table id="dataTable">
+                    <tr class="tabela-main-header">
+                        <th><i class="fa-solid fa-trash"></i></th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Palavra-Passe</th>
+                        <th>Telemóvel</th>
+                        <th>CC</th>
+                        <th>Localidade</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
